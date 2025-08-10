@@ -30,16 +30,6 @@ background contrast. All other values default to \"medium\"."
   :family 'doom-gruvbox-material
   :background-mode 'dark
 
-  ;; TODO: Add palette coloring based on variant
-  ;; ((bg
-  ;;   (cond ((equal gruvbox-material-dark-variant "hard") '("#1d2021" "#1e1e1e" nil))   ; bg0_h
-  ;;         ((equal gruvbox-material-dark-variant "soft") '("#32302f" "#32302f" nil))   ; bg0_s
-  ;;         (t                                            '("#32302f" "#32302f" nil)))) ; bg0
-  ;;  (bg-alt
-  ;;   (cond ((equal gruvbox-material-dark-variant "hard") '("#0d1011" "black" nil))     ; (self-defined)
-  ;;         ((equal gruvbox-material-dark-variant "soft") '("#32302f" "#32302f" nil))   ; bg0
-  ;;         (t                                            '("#32302f" "#32302f" nil)))) ; bg_h
-
   ;; https://user-images.githubusercontent.com/58662350/213884037-97bb9a1b-cc5a-46c1-8d44-877cd85b1cdc.png
   ;; name               gui       256      16
   ((bg               '("#32302f" "#262626" nil          ))   ; bg0
@@ -67,19 +57,49 @@ background contrast. All other values default to \"medium\"."
 
    ;; Palette colors
    (grey             '("#a89984" "#afaf87" "brightblack"))   ; grey2
-   (red              '("#ea6962" "#d75f5f" "red"))           ; red
    (magenta          '("#d3869b" "#d787af" "magenta"))       ; purple
    (violet           '("#d3869b" "#d787af" "brightmagenta")) ; purple
-   (orange           '("#e78a4e" "#d7875f" "orange"))        ; orange
-   (yellow           '("#d8a657" "#d7af5f" "yellow"))        ; yellow
-   (dark-yellow      '("#d8a657" "#d7af5f" "yellow"))        ; yellow
    (teal             '("#89b482" "#87af87" "green"))         ; aqua
-   (green            '("#a9b665" "#afaf87" "green"))         ; green
-   (dark-green       '("#a9b665" "#afaf87" "green"))         ; green
-   (blue             '("#7daea3" "#87afaf" "brightblue"))    ; blue
-   (dark-blue        '("#7daea3" "#5f8787" "blue"))          ; blue
-   (cyan             '("#89b482" "#87afaf" "brightcyan"))    ; aqua
-   (dark-cyan        '("#89b482" "#5f8787" "cyan"))          ; aqua
+   (red
+    (cond ((equal gruvbox-material-dark-variant "hard") '("#fb4934" "#ff5f5f" "red"))          ; red_h
+          ((equal gruvbox-material-dark-variant "soft") '("#ea6962" "#d75f5f" "red"))          ; red_s
+          (t                                            '("#ea6962" "#d75f5f" "red"))))        ; red_s
+   (orange
+    (cond ((equal gruvbox-material-dark-variant "hard") '("#fe8019" "#ff8700" "orange"))       ; orange_h
+          ((equal gruvbox-material-dark-variant "soft") '("#e78a4e" "#d7875f" "orange"))       ; orange_s
+          (t                                            '("#e78a4e" "#d7875f" "orange"))))     ; orange_s
+   (yellow
+    (cond ((equal gruvbox-material-dark-variant "hard") '("#fabd2f" "#ffd75f" "yellow"))       ; yellow_h
+          ((equal gruvbox-material-dark-variant "soft") '("#d8a657" "#d7af5f" "yellow"))       ; yellow_s
+          (t                                            '("#d8a657" "#d7af5f" "yellow"))))     ; yellow_s
+   (dark-yellow
+    (cond ((equal gruvbox-material-dark-variant "hard") '("#fabd2f" "#ffd75f" "yellow"))       ; yellow_h
+          ((equal gruvbox-material-dark-variant "soft") '("#d8a657" "#d7af5f" "yellow"))       ; yellow_s
+          (t                                            '("#d8a657" "#d7af5f" "yellow"))))     ; yellow_s
+   (green
+    (cond ((equal gruvbox-material-dark-variant "hard") '("#b8bb26" "#afaf00" "green"))        ; green_h
+          ((equal gruvbox-material-dark-variant "soft") '("#a9b665" "#afaf87" "green"))        ; green_s
+          (t                                            '("#a9b665" "#afaf87" "green"))))      ; green_s
+   (dark-green
+    (cond ((equal gruvbox-material-dark-variant "hard") '("#b8bb26" "#afaf00" "green"))        ; green_h
+          ((equal gruvbox-material-dark-variant "soft") '("#a9b665" "#afaf87" "green"))        ; green_s
+          (t                                            '("#a9b665" "#afaf87" "green"))))      ; green_s
+   (blue
+    (cond ((equal gruvbox-material-dark-variant "hard") '("#7daea3" "#87afaf" "brightblue"))   ; blue_h
+          ((equal gruvbox-material-dark-variant "soft") '("#7daea3" "#87afaf" "brightblue"))   ; blue_s
+          (t                                            '("#7daea3" "#87afaf" "brightblue")))) ; blue_s
+   (dark-blue
+    (cond ((equal gruvbox-material-dark-variant "hard") '("#7daea3" "#87afaf" "blue"))         ; blue_h
+          ((equal gruvbox-material-dark-variant "soft") '("#7daea3" "#87afaf" "blue"))         ; blue_s
+          (t                                            '("#7daea3" "#87afaf" "blue"))))       ; blue_s
+   (cyan
+    (cond ((equal gruvbox-material-dark-variant "hard") '("#8ec07c" "#87af87" "brightcyan"))   ; aqua_h
+          ((equal gruvbox-material-dark-variant "soft") '("#89b482" "#87afaf" "brightcyan"))   ; aqua_s
+          (t                                            '("#89b482" "#87afaf" "brightcyan")))) ; aqua_s
+   (dark-cyan
+    (cond ((equal gruvbox-material-dark-variant "hard") '("#8ec07c" "#87af87" "cyan"))         ; aqua_h
+          ((equal gruvbox-material-dark-variant "soft") '("#89b482" "#87afaf" "cyan"))         ; aqua_s
+          (t                                            '("#89b482" "#87afaf" "cyan"))))       ; aqua_s
 
    ;; Extra colors
    (bg-visual-yellow '("#574833" "#5f5f00" "yellow"))
