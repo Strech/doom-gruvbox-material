@@ -41,13 +41,13 @@ background contrast. All other values default to \"medium\"."
   ;;         (t                                            '("#32302f" "#32302f" nil)))) ; bg_h
 
   ;; https://user-images.githubusercontent.com/58662350/213884037-97bb9a1b-cc5a-46c1-8d44-877cd85b1cdc.png
-  ;; name         gui       256      16
+  ;; name               gui       256      16
   ((bg               '("#32302f" "#262626" nil          ))   ; bg0
    (bg-alt           '("#32302f" "#262626" nil          ))   ; bg0
    (bg-alt2          '("#46413e" "#5b534d" "brown"      ))   ; bg_statusline2 (for region, selection etc.)
 
    ;; Base colors
-   (base0            '("#252423" "#1c1c1c"   "black"      ))   ; bg_dim
+   (base0            '("#252423" "#1c1c1c"   "black"      )) ; bg_dim
    (base1            '("#3c3836" "#3a3a3a" "brightblack"))   ; bg1
    (base2            '("#3c3836" "#403c3a" "brightblack"))   ; bg2
    (base3            '("#504945" "#4e4e4e" "brightblack"))   ; bg3
@@ -56,8 +56,14 @@ background contrast. All other values default to \"medium\"."
    (base6            '("#665c54" "#665c54" "brightblack"))   ; bg5
    (base7            '("#7c6f64" "#767676" "brightblack"))   ; grey0
    (base8            '("#7c6f64" "#767676" "brightwhite"))   ; grey0
-   (fg               '("#d4be98" "#d7af87" "brightwhite"))   ; fg0
-   (fg-alt           '("#ddc7a1" "#d7c6af" "brightwhite"))   ; fg1
+   (fg
+    (cond ((equal gruvbox-material-dark-variant "hard") '("#ebdbb2" "#d7d7af" "brightwhite"))   ; fg0_h
+          ((equal gruvbox-material-dark-variant "soft") '("#d4be98" "#d4be98" "brightwhite"))   ; fg0_s
+          (t                                            '("#d4be98" "#d4be98" "brightwhite")))) ; fg0_s
+   (fg-alt
+    (cond ((equal gruvbox-material-dark-variant "hard") '("#ebdbb2" "#d7d7af" "brightwhite"))   ; fg1_h
+          ((equal gruvbox-material-dark-variant "soft") '("#ddc7a1" "#d7c6af" "brightwhite"))   ; fg1_s
+          (t                                            '("#ddc7a1" "#d7c6af" "brightwhite")))) ; fg1_s
 
    ;; Palette colors
    (grey             '("#a89984" "#afaf87" "brightblack"))   ; grey2
