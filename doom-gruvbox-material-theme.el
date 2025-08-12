@@ -146,7 +146,7 @@ background contrast. All other values default to \"medium\"."
 
   ((bg        palette/bg0)
    (bg-alt    palette/bg0)
-   (bg-alt2   palette/bg-statusline2) ; for region, selection etc.
+   (bg-alt2   palette/bg-statusline3) ; for region, selection etc.
 
    (fg        palette/fg0)
    (fg-alt    palette/fg1)
@@ -176,13 +176,15 @@ background contrast. All other values default to \"medium\"."
    (dark-cyan palette/aqua)
 
    ;; Extra colors
-   (bg-visual-yellow palette/bg-visual-yellow)
    (bg-visual-red    palette/bg-visual-red)
    (bg-visual-green  palette/bg-visual-green)
+   (bg-visual-blue   palette/bg-visual-blue)
+   (bg-visual-yellow palette/bg-visual-yellow)
+   (bg-visual-purple palette/bg-visual-purple)
    (bg-diff-red      palette/bg-diff-red)
    (bg-diff-green    palette/bg-diff-green)
 
-   ;; face categories
+   ;; Face categories
    (highlight      yellow)
    (vertical-bar   bg-alt2)
    (selection      bg-alt2)
@@ -240,6 +242,10 @@ background contrast. All other values default to \"medium\"."
 
    ;;;; FCI
    (fill-column-indicator :foreground base2 :background nil)
+
+   ;;;; Flash Line
+   (nav-flash-face :background bg-alt2)
+
    ;;;; company
    (company-preview-common :foreground cyan)
    (company-tooltip-common :foreground cyan)
@@ -250,10 +256,13 @@ background contrast. All other values default to \"medium\"."
    (company-scrollbar-fg :background cyan)
    (company-tooltip-selection :background bg-alt2)
    (company-tooltip-mouse :background bg-alt2 :foreground nil)
+
    ;;;; css-mode <built-in> / scss-mode
    (css-proprietary-property :foreground keywords)
+
    ;;;; doom-emacs
-   (+workspace-tab-selected-face :background (doom-darken green 0.35) :foreground fg)
+   (+workspace-tab-selected-face :background green :foreground bg-alt)
+
    ;;;; doom-modeline
    (doom-modeline-project-dir :bold t :foreground cyan)
    (doom-modeline-buffer-path :inherit 'bold :foreground green)
@@ -263,37 +272,48 @@ background contrast. All other values default to \"medium\"."
    (doom-modeline-buffer-major-mode :foreground green :bold t)
    (doom-modeline-info :bold t :foreground cyan)
    (doom-modeline-bar :background green)
-   (doom-modeline-panel :background green :foreground fg)
+   (doom-modeline-panel :background green :foreground bg-alt)
+
    ;;;; doom-themes
    (doom-themes-neotree-file-face :foreground fg)
    (doom-themes-neotree-hidden-file-face :foreground (doom-lighten fg-alt 0.25))
    (doom-themes-neotree-media-file-face :foreground (doom-lighten fg-alt 0.25))
+
    ;;;; emacs-lisp-mode
    (highlight-quoted-symbol :foreground cyan)
+
    ;;;; ediff <built-in>
    (ediff-fine-diff-A    :background (doom-blend red bg 0.4) :weight 'bold)
    (ediff-current-diff-A :background (doom-blend red bg 0.2))
+
    ;;;; evil
    (evil-search-highlight-persist-highlight-face :background yellow)
    (evil-ex-substitute-replacement :foreground cyan :strike-through nil :inherit 'evil-ex-substitute-matches)
+
    ;;;; evil-snipe
    (evil-snipe-first-match-face :foreground "white" :background yellow)
    (evil-snipe-matches-face     :foreground yellow :bold t :underline t)
+
    ;;;; flycheck
    (flycheck-error   :underline `(:style wave :color ,red)    :background base3)
    (flycheck-warning :underline `(:style wave :color ,yellow) :background base3)
    (flycheck-info    :underline `(:style wave :color ,blue)   :background base3)
+
    ;;;; dired
    (dired-directory :foreground cyan)
    (dired-marked :foreground yellow)
    (dired-symlink :foreground cyan)
    (dired-header :foreground cyan)
+
    ;;;; helm
    (helm-swoop-target-line-face :foreground magenta :inverse-video t)
+
    ;;;; highlight-thing
    (highlight-thing :background (doom-lighten base3 0.03) :distant-foreground fg-alt)
+
    ;;;; highlight-symbol
    (highlight-symbol-face :background (doom-lighten base3 0.03) :distant-foreground fg-alt)
+
    ;;;; ivy
    (ivy-current-match :background bg-alt2)
    (ivy-subdir :background nil :foreground cyan)
@@ -303,22 +323,20 @@ background contrast. All other values default to \"medium\"."
    (ivy-minibuffer-match-face-2 :background nil :foreground yellow)
    (ivy-minibuffer-match-highlight :foreground cyan)
    (counsel-key-binding :foreground cyan)
-   
    ;;;; ivy-posframe
    (ivy-posframe :background base3)
    (ivy-posframe-border :background base1)
-   
+
    ;;;; LaTeX-mode
    (font-latex-math-face :foreground cyan)
-   
+
    ;;;; magit
    (magit-section-heading             :foreground cyan :weight 'bold)
    (magit-branch-current              :underline green :inherit 'magit-branch-local)
    (magit-diff-hunk-heading           :background base3 :foreground fg-alt)
    (magit-diff-hunk-heading-highlight :background bg-alt2 :foreground fg)
    (magit-diff-context                :foreground base3 :foreground fg-alt)
-   
-   ;;;; magit-diff
+   ;;;magit-diff
    (magit-diff-added                 :background bg-visual-green :foreground fg)
    (magit-diff-added-highlight       :background bg-diff-green :foreground fg)
    (magit-diff-removed               :background bg-visual-red   :foreground fg)
@@ -335,13 +353,16 @@ background contrast. All other values default to \"medium\"."
    (markdown-pre-face  :foreground cyan)
    (markdown-link-face :inherit 'underline :foreground grey)
    ((markdown-code-face &override) :background base2)
+
    ;;;; mu4e-view
    (mu4e-header-key-face :foreground red :weight 'bold)
+
    ;;;; neotree
    (neo-root-dir-face   :foreground cyan)
    (doom-neotree-dir-face :foreground cyan)
    (neo-dir-link-face   :foreground cyan)
    (neo-expand-btn-face :foreground magenta)
+
    ;;;; outline <built-in>
    ((outline-1 &override) :foreground violet)
    ((outline-2 &override) :foreground cyan)
@@ -375,29 +396,36 @@ background contrast. All other values default to \"medium\"."
    (org-todo :foreground green :bold 'inherit)
                                         ; (org-todo :foreground yellow :bold 'inherit)
    (org-verbatim :foreground yellow)
+
    ;;;; rainbow-delimiters
    (rainbow-delimiters-depth-1-face :foreground orange)
    (rainbow-delimiters-depth-2-face :foreground magenta)
    (rainbow-delimiters-depth-3-face :foreground green)
    (rainbow-delimiters-depth-4-face :foreground blue)
+
    ;;;; show-paren <built-in>
    ((show-paren-match &override) :foreground 'unspecified :background base5 :bold t)
    ((show-paren-mismatch &override) :foreground 'unspecified :background bg-diff-red)
+
    ;;;; swiper
    (swiper-line-face :background bg-alt2)
+
    ;;;; undo-tree
    (undo-tree-visualizer-active-branch-face :foreground cyan)
    (undo-tree-visualizer-current-face :foreground yellow)
+
    ;;;; vimish-fold
    ((vimish-fold-overlay &override) :inherit 'font-lock-comment-face :background bg-alt2 :weight 'light)
    ((vimish-fold-mouse-face &override) :foreground "white" :background yellow :weight 'light)
    ((vimish-fold-fringe &override) :foreground magenta :background magenta)
+
    ;;;; web-mode
    (web-mode-html-tag-bracket-face :foreground blue)
    (web-mode-html-tag-face         :foreground cyan)
    (web-mode-html-attr-name-face   :foreground cyan)
    (web-mode-json-key-face         :foreground green)
    (web-mode-json-context-face     :foreground cyan)
+
    ;;;; which-key
    (which-key-key-face                   :foreground green)
    (which-key-group-description-face     :foreground red)
@@ -407,3 +435,4 @@ background contrast. All other values default to \"medium\"."
   ;;;; Base theme variable overrides
   ;; ()
   )
+;;; doom-gruvbox-material-theme.el ends here
