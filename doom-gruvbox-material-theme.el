@@ -252,7 +252,10 @@ background contrast. All other values default to \"medium\"."
    (goggles-removed :background bg-visual-red)
    (goggles-added   :background bg-visual-green)
 
-   ;;;; corfu (instead of company) TODO
+   ;;;; corfu (instead of company)
+   (corfu-current :background bg-alt2)
+   (corfu-border  :background bg)
+   (corfu-default :background base1 :foreground fg)
 
    ;;;; company
    (company-preview-common :foreground cyan)
