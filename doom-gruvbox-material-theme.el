@@ -28,7 +28,7 @@ background contrast. All other values default to \"medium\"."
 ;; https://github.com/sainnhe/gruvbox-material/tree/master
 (cond
  ((equal doom-gruvbox-material-dark-variant "hard")
-  ;;    name                  UI        256       16
+  ;;    name                        UI        256       16
   (setq palette/bg-dim           '("#141617" "#1c1c1c" "black")
         palette/bg0              '("#1d2021" "#262626" "brightblack")
         palette/bg1              '("#282828" "#303030" "brightblack")
@@ -64,7 +64,7 @@ background contrast. All other values default to \"medium\"."
         palette/grey1            '("#928374" "#87875f" "brightblack")
         palette/grey2            '("#a89984" "#afaf87" "brightblack")))
  ((equal doom-gruvbox-material-dark-variant "soft")
-  ;;    name                  UI        256       16
+  ;;    name                        UI        256       16
   (setq palette/bg-dim           '("#252423" "#1c1c1c" "black")
         palette/bg0              '("#32302f" "#262626" "brightblack")
         palette/bg1              '("#3c3836" "#303030" "brightblack")
@@ -100,7 +100,7 @@ background contrast. All other values default to \"medium\"."
         palette/grey1            '("#928374" "#87875f" "brightblack")
         palette/grey2            '("#afaf87" "#afaf87" "brightblack")))
  (t   ;; doom-gruvbox-material-dark-variant "medium")
-  ;;    name                  UI        256       16
+  ;;    name                        UI        256       16
   (setq palette/bg-dim           '("#1b1b1b" "#1c1c1c" "black")
         palette/bg0              '("#282828" "#262626" "brightblack")
         palette/bg1              '("#32302f" "#303030" "brightblack")
@@ -215,6 +215,7 @@ background contrast. All other values default to \"medium\"."
       (if (integerp doom-gruvbox-material-padded-modeline)
           doom-gruvbox-material-padded-modeline
         4)))
+
    (modeline-bg bg-alt2)
    (modeline-fg (doom-lighten fg-alt 0.25))
    (modeline-inactive-bg (doom-darken modeline-bg 0.15))
