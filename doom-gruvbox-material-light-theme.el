@@ -163,22 +163,22 @@ background contrast. All other values default to \"medium\"."
    ;; face categories -- required for all themes
    (highlight      blue)
    (vertical-bar   (doom-darken base1 0.1))
-   (selection      base3)                          ;; TODO: maybe grey?
-   (builtin        orange)                         ;; TODO: maybe magenta?
+   (selection      base3)
+   (builtin        orange)
    (comments       (doom-blend grey base8 0.5))
    (doc-comments   (doom-darken green 0.15))
    (constants      violet)
-   (functions      yellow)                         ;; TODO: maybe cyan?
-   (keywords       red)                            ;; TODO: doom-darken green 0.15?
+   (functions      green)
+   (keywords       red)
    (methods        cyan)
    (operators      blue)
-   (type           violet)                         ;; TODO: maybe orange?
-   (strings        green)
-   (variables      blue)                           ;; TODO: maybe cyan?
+   (type           violet)
+   (strings        yellow)
+   (variables      blue)
    (numbers        violet)
    (region         bg-alt2)
    (error          red)
-   (warning        orange)                         ;; TODO: maybe yellow?
+   (warning        orange)
    (success        green)
    (vc-modified    orange)
    (vc-added       green)
@@ -205,7 +205,7 @@ background contrast. All other values default to \"medium\"."
    (isearch           :foreground "black" :background orange)
    (isearch-fail      :foreground fg :background red)
    (lazy-highlight    :background base2  :foreground base8 :distant-foreground base0 :weight 'bold)
-   ((line-number &override) :foreground base4)
+   ((line-number &override) :foreground (doom-lighten fg-alt 0.45))
    ((line-number-current-line &override) :foreground orange)
    (mode-line
     :background modeline-bg :foreground modeline-fg
