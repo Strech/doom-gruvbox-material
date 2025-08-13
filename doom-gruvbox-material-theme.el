@@ -247,7 +247,11 @@ background contrast. All other values default to \"medium\"."
    ;;;; nav-flash (current line flashing on big move)
    (nav-flash-face :background bg-alt2)
 
-   ;;;; goggles TODO
+   ;;;; goggles (areas highlight on action)
+   (goggles-changed :background bg-visual-blue)
+   (goggles-removed :background bg-visual-red)
+   (goggles-added   :background bg-visual-green)
+
    ;;;; corfu (instead of company) TODO
 
    ;;;; company
