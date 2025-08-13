@@ -243,8 +243,11 @@ background contrast. All other values default to \"medium\"."
    ;;;; FCI
    (fill-column-indicator :foreground base2 :background nil)
 
-   ;;;; Flash Line
+   ;;;; nav-flash (current line flashing on big move)
    (nav-flash-face :background bg-alt2)
+
+   ;;;; goggles TODO
+   ;;;; corfu (instead of company) TODO
 
    ;;;; company
    (company-preview-common :foreground cyan)
