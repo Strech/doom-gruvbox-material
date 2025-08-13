@@ -345,9 +345,9 @@ background contrast. All other values default to \"medium\"."
    (magit-diff-hunk-heading-highlight :background bg-alt2 :foreground fg)
    (magit-diff-context                :foreground base3 :foreground fg-alt)
    ;;;magit-diff
-   (magit-diff-added                 :background bg-visual-green :foreground fg)
+   (magit-diff-added                 :background (doom-darken bg-visual-green 0.25) :foreground fg)
+   (magit-diff-removed               :background (doom-darken bg-visual-red 0.25)   :foreground fg)
    (magit-diff-added-highlight       :background bg-diff-green :foreground fg)
-   (magit-diff-removed               :background bg-visual-red   :foreground fg)
    (magit-diff-removed-highlight     :background bg-diff-red   :foreground fg)
    (diff-refine-added   :background (doom-blend bg-diff-green green 0.75))
    (diff-refine-removed :background (doom-blend bg-diff-red   red   0.75))
@@ -380,12 +380,7 @@ background contrast. All other values default to \"medium\"."
    ((outline-6 &override) :foreground (doom-lighten violet 0.4))
    ((outline-7 &override) :foreground (doom-lighten cyan 0.5))
    ((outline-8 &override) :foreground (doom-lighten violet 0.6))
-                                        ; ((outline-1 &override) :foreground green)
-                                        ; ((outline-2 &override) :foreground green)
-                                        ; ((outline-3 &override) :foreground yellow)
-                                        ; ((outline-4 &override) :foreground yellow)
-                                        ; ((outline-5 &override) :foreground dark-yellow)
-                                        ; ((outline-6 &override) :foreground dark-yellow)
+
    ;;;; org <built-in>
    ((org-code &override) :foreground orange)
    (org-date :foreground green)
