@@ -179,16 +179,16 @@ background contrast. All other values default to \"medium\"."
    (builtin        orange)   ;; the require, load, puts, lambda, etc.
    (comments       (doom-blend grey base8 0.5))
    (doc-comments   (doom-darken green 0.15))
-   (constants      violet)   ;; the symbols, true, false, etc.
-   (functions      yellow)   ;; the definition (name) of the function
-   (keywords       red)      ;; the module, class, return, unless, if, end, etc.
-   (methods        cyan)     ;; ???
-   (operators      blue)     ;; ???
-   (type           blue)     ;; the constants and classes/modules names
-   (strings        green)    ;; the strings with quotes
-   (variables      cyan)     ;; the instance or class variable names, interpolation
-   (numbers        violet)   ;; the numbers
-   (region         bg-alt2)  ;; the selection of the area
+   (constants      violet)  ;; the symbols, true, false, etc.
+   (functions      yellow)  ;; the definition (name) of the function
+   (keywords       red)     ;; the module, class, return, unless, if, end, etc.
+   (methods        cyan)    ;; ???
+   (operators      blue)    ;; ???
+   (type           blue)    ;; the constants and classes/modules names
+   (strings        green)   ;; the strings with quotes
+   (variables      cyan)    ;; the instance or class variable names, interpolation
+   (numbers        violet)  ;; the numbers
+   (region         bg-alt2) ;; the selection of the area
    (error          red)
    (warning        orange)
    (success        green)
@@ -250,7 +250,7 @@ background contrast. All other values default to \"medium\"."
    (corfu-current :background base3)
    (corfu-border  :background base3)
    (corfu-default :background base1 :foreground fg)
-   (corfu-annotations :foreground violet)
+   (corfu-annotations :foreground comments)
 
    ;;;; anzu FIXME: Remove
    ;; (anzu-mode-line         :foreground yellow :weight 'bold)

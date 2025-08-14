@@ -189,18 +189,18 @@ background contrast. All other values default to \"medium\"."
    (vertical-bar   bg-alt2)
    (selection      bg-alt2)
    (builtin        orange)
-   (comments       (doom-blend yellow base8 0.5))
+   (comments       (doom-blend yellow base8 0.35))
    (doc-comments   (doom-darken green 0.15))
-   (constants      violet)
-   (functions      green)
-   (keywords       red)
-   (methods        green)
-   (operators      fg)
-   (type           yellow)
-   (strings        green)
-   (variables      blue)
-   (numbers        violet)
-   (region         bg-alt2)
+   (constants      violet)  ;; the symbols, true, false, etc.
+   (functions      green)   ;; the definition (name) of the function
+   (keywords       red)     ;; the module, class, return, unless, if, end, etc.
+   (methods        green)   ;; ???
+   (operators      fg)      ;; ???
+   (type           yellow)  ;; the constants and classes/modules names
+   (strings        green)   ;; the strings with quotes
+   (variables      blue)    ;; the instance or class variable names, interpolation
+   (numbers        violet)  ;; the numbers
+   (region         bg-alt2) ;; the selection of the area
    (error          red)
    (warning        yellow)
    (success        green)
@@ -258,9 +258,10 @@ background contrast. All other values default to \"medium\"."
    (goggles-added   :background bg-visual-green)
 
    ;;;; corfu (instead of company)
-   (corfu-current :background bg-alt2)
-   (corfu-border  :background bg)
+   (corfu-current :background base3)
+   (corfu-border  :background base3)
    (corfu-default :background base1 :foreground fg)
+   (corfu-annotations :foreground comments)
 
    ;;;; company
    (company-preview-common :foreground cyan)
