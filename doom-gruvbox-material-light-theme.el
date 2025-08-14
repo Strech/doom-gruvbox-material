@@ -198,6 +198,7 @@ background contrast. All other values default to \"medium\"."
    ;;;; FIXME: Do we need it?
    (tooltip :background base1 :foreground base6)
 
+   ;; TODO: Maybe improve?
    (mode-line
     :background modeline-bg :foreground modeline-fg
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg)))
@@ -225,31 +226,22 @@ background contrast. All other values default to \"medium\"."
    (corfu-bar         :background fg)
    (corfu-annotations :foreground comments)
 
-   ;;;; anzu FIXME: Remove
-   ;; (anzu-mode-line         :foreground yellow :weight 'bold)
-   ;; (anzu-match-1           :background green)
-   ;; (anzu-match-2           :background faded-yellow)
-   ;; (anzu-match-3           :background aquamarine4)
-   ;; (anzu-replace-to        :foreground yellow)
-   ;; (anzu-replace-highlight :inherit 'isearch)
+   ;;;; doom-emacs
+   (doom-dashboard-banner      :foreground (doom-darken base4 0.3))
+   (doom-dashboard-menu-title  :foreground green)
+   (doom-dashboard-menu-desc   :foreground green)
+   (doom-dashboard-footer-icon :foreground (doom-darken yellow 0.4))
+   (doom-dashboard-loaded      :foreground yellow)
+
+   ;;;; LSP
+   (lsp-face-highlight-textual :background bg-visual-blue :foreground blue)
+
+   ;;
+   ;; XXX: TO BE VERIFIED
+   ;;
 
    ;;;; centaur-tabs
    (centaur-tabs-unselected :background bg-alt :foreground base4)
-
-   ;;;; company
-   ;; (company-scrollbar-bg                      :background base1)
-   ;; (company-scrollbar-fg                      :background bg-alt)
-   ;; (company-tooltip                           :background bg-alt)
-   ;; (company-tooltip-annotation                :foreground green)
-   ;; (company-tooltip-annotation-selection      :inherit 'company-tooltip-annotation)
-   ;; (company-tooltip-selection                 :foreground violet :background base2)
-   ;; (company-tooltip-common                    :foreground blue :underline t)
-   ;; (company-tooltip-common-selection          :foreground blue :underline t)
-   ;; (company-preview-common                    :foreground base7)
-   ;; (company-preview                           :background lightblue4)
-   ;; (company-preview-search                    :background turquoise4)
-   ;; (company-template-field                    :foreground "black" :background yellow)
-   ;; (company-echo-common                       :foreground faded-red)
 
    ;;;; css-mode <built-in> / scss-mode
    (css-proprietary-property :foreground orange)
@@ -288,13 +280,6 @@ background contrast. All other values default to \"medium\"."
    ((diredp-dir-exec-priv &inherit diredp-dir-priv))
    (diredp-link-priv :foreground faded-aqua)
 
-   ;;;; doom-emacs
-   (doom-dashboard-banner      :foreground (doom-darken base4 0.3))
-   (doom-dashboard-menu-title  :foreground green)
-   (doom-dashboard-menu-desc   :foreground green)
-   (doom-dashboard-footer-icon :foreground (doom-darken yellow 0.4))
-   (doom-dashboard-loaded      :foreground yellow)
-
    ;;;; diff-mode
    (diff-changed                   :foreground base6)
    (diff-removed                   :foreground red)
@@ -308,78 +293,8 @@ background contrast. All other values default to \"medium\"."
    (ediff-current-diff-C        :foreground blue  :background (doom-lighten blue 0.8))
    (ediff-current-diff-Ancestor :foreground teal  :background (doom-lighten teal 0.8))
 
-   ;;;; elfeed
-   (elfeed-search-title-face :foreground grey)
-   (elfeed-search-date-face :inherit 'font-lock-builtin-face :underline t)
-   (elfeed-search-tag-face :inherit 'font-lock-keyword-face)
-   (elfeed-search-unread-count-face :inherit 'font-lock-comment-face)
-   (elfeed-search-filter-face :inherit 'font-lock-string-face)
-
    ;;;; flycheck
    (flycheck-info :underline `(:style wave :color ,blue))
-
-   ;;;; git-gutter
-   (git-gutter:modified :foreground faded-blue :background blue)
-   (git-gutter:added    :foreground faded-green :background green)
-   (git-gutter:deleted  :foreground faded-red :backgrond red)
-   ;;;; git-gutter+
-   (git-gutter+-modified :foreground faded-blue :background blue)
-   (git-gutter+-added    :foreground faded-green :background green)
-   (git-gutter+-deleted  :foreground faded-red :backgrond red)
-
-   ;;;; helm
-   (helm-candidate-number       :background blue :foreground bg)
-   (helm-M-x-key                :foreground orange)
-   (helm-action                 :foreground base8 :underline t)
-   (helm-bookmark-addressbook   :foreground red)
-   (helm-bookmark-directory     :foreground violet)
-   (helm-bookmark-file          :foreground faded-blue)
-   (helm-bookmark-gnus          :foreground magenta)
-   (helm-bookmark-info          :foreground turquoise4)
-   (helm-bookmark-man           :foreground sienna)
-   (helm-bookmark-w3m           :foreground yellow)
-   (helm-buffer-directory       :foreground "white" :background blue)
-   (helm-buffer-not-saved       :foreground red)
-   (helm-buffer-process         :foreground burlywood4)
-   (helm-buffer-saved-out       :foreground red)
-   (helm-buffer-size            :foreground violet)
-   (helm-candidate-number       :foreground green)
-   (helm-ff-directory           :foreground violet)
-   (helm-ff-executable          :foreground turquoise4)
-   (helm-ff-file                :foreground sienna)
-   (helm-ff-invalid-symlink     :foreground "white" :background red)
-   (helm-ff-prefix              :foreground "black" :background yellow)
-   (helm-ff-symlink             :foreground orange)
-   (helm-grep-cmd-line          :foreground green)
-   (helm-grep-file              :foreground magenta)
-   (helm-grep-finish            :foreground turquoise4)
-   (helm-grep-lineno            :foreground orange)
-   (helm-grep-match             :foreground yellow)
-   (helm-grep-running           :foreground red)
-   (helm-header                 :foreground aquamarine4)
-   (helm-helper                 :foreground aquamarine4)
-   (helm-history-deleted        :foreground "black" :background red)
-   (helm-history-remote         :foreground faded-red)
-   (helm-lisp-completion-info   :foreground faded-orange)
-   (helm-lisp-show-completion   :foreground red)
-   (helm-locate-finish          :foreground "white" :background aquamarine4)
-   (helm-match                  :foreground orange)
-   (helm-moccur-buffer          :foreground cyan :underline t)
-   (helm-prefarg                :foreground turquoise4)
-   (helm-selection              :foreground "white" :background base2)
-   (helm-selection-line         :foreground "white" :background base2)
-   (helm-separator              :foreground faded-red)
-   (helm-source-header          :foreground base5)
-   (helm-visible-mark           :foreground "black" :background light3)
-
-   ;;;; ivy
-   (ivy-minibuffer-match-face-1     :foreground orange)
-   (ivy-minibuffer-match-face-2     :foreground yellow)
-   (ivy-minibuffer-match-face-3     :foreground faded-orange)
-   (ivy-minibuffer-match-face-4     :foreground faded-yellow)
-
-   ;;;; ivy-posframe
-   (ivy-posframe               :background bg-alt)
 
    ;;;; js2-mode
    (js2-warning                    :underline `(:style wave :color ,yellow))
@@ -395,9 +310,6 @@ background contrast. All other values default to \"medium\"."
    (js2-private-function-call      :foreground faded-aqua)
    (js2-jsdoc-html-tag-name        :foreground light4)
    (js2-jsdoc-html-tag-delimiter   :foreground light3)
-
-   ;;;; LSP
-   (lsp-face-highlight-textual :background bg-visual-blue :foreground blue)
 
    ;;;; magit
    (magit-bisect-bad                      :foreground faded-red)
