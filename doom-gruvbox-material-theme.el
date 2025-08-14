@@ -145,8 +145,8 @@ background contrast. All other values default to \"medium\"."
   :background-mode 'dark
 
   ((bg        palette/bg0)
-   (bg-alt    palette/bg0)
-   (bg-alt2   palette/bg-statusline3) ; for region, selection etc.
+   (bg-alt    palette/bg-current-word)
+   (bg-alt2   palette/bg-statusline3)  ; for region, selection etc.
 
    (fg        palette/fg0)
    (fg-alt    palette/fg1)
@@ -216,10 +216,10 @@ background contrast. All other values default to \"medium\"."
           doom-gruvbox-material-padded-modeline
         4)))
 
-   (modeline-bg base3)
+   (modeline-bg bg-alt)
    (modeline-fg (doom-lighten fg-alt 0.25))
-   (modeline-inactive-bg (doom-darken modeline-bg 0.15))
-   (modeline-inactive-fg base6)
+   (modeline-bg-inactive (doom-darken modeline-bg 0.15))
+   (modeline-fg-inactive base6)
 
    ;; FIXME Unknown
    (org-quote `(,(doom-lighten (car bg) 0.05) "#1f1f1f")))
@@ -243,8 +243,8 @@ background contrast. All other values default to \"medium\"."
     :background modeline-bg :foreground modeline-fg
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg)))
    (mode-line-inactive
-    :background modeline-inactive-bg :foreground modeline-inactive-fg
-    :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-inactive-bg)))
+    :background modeline-bg-inactive :foreground modeline-fg-inactive
+    :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive)))
 
    ;;;; FCI
    (fill-column-indicator :foreground base2 :background nil)
@@ -258,21 +258,11 @@ background contrast. All other values default to \"medium\"."
    (goggles-added   :background bg-visual-green)
 
    ;;;; corfu (instead of company)
-   (corfu-current :background base3)
-   (corfu-border  :background base3)
-   (corfu-default :background base1 :foreground fg)
+   (corfu-default     :background bg-alt :foreground fg)
+   (corfu-current     :background bg-alt2)
+   (corfu-border      :background base4)
+   (corfu-bar         :background fg)
    (corfu-annotations :foreground comments)
-
-   ;;;; company
-   (company-preview-common :foreground cyan)
-   (company-tooltip-common :foreground cyan)
-   (company-tooltip-common-selection :foreground cyan)
-   (company-tooltip-annotation :foreground cyan)
-   (company-tooltip-annotation-selection :foreground cyan)
-   (company-scrollbar-bg :background base3)
-   (company-scrollbar-fg :background cyan)
-   (company-tooltip-selection :background bg-alt2)
-   (company-tooltip-mouse :background bg-alt2 :foreground nil)
 
    ;;;; css-mode <built-in> / scss-mode
    (css-proprietary-property :foreground keywords)
@@ -281,20 +271,37 @@ background contrast. All other values default to \"medium\"."
    (+workspace-tab-selected-face :background green :foreground bg-alt)
 
    ;;;; doom-modeline
-   (doom-modeline-project-dir :bold t :foreground cyan)
-   (doom-modeline-buffer-path :inherit 'bold :foreground green)
+   (doom-modeline-project-dir :bold t :foreground green)
+   (doom-modeline-buffer-path :inherit 'bold :foreground cyan)
    (doom-modeline-buffer-file :inherit 'bold :foreground fg)
    (doom-modeline-buffer-modified :inherit 'bold :foreground yellow)
-   (doom-modeline-error :background bg)
    (doom-modeline-buffer-major-mode :foreground green :bold t)
-   (doom-modeline-info :bold t :foreground cyan)
-   (doom-modeline-bar :background green)
-   (doom-modeline-panel :background green :foreground bg-alt)
+   (doom-modeline-error   :foreground red)
+   (doom-modeline-warning :foreground yellow)
+   (doom-modeline-info    :foreground cyan)
 
-   ;;;; doom-themes
-   (doom-themes-neotree-file-face :foreground fg)
-   (doom-themes-neotree-hidden-file-face :foreground (doom-lighten fg-alt 0.25))
-   (doom-themes-neotree-media-file-face :foreground (doom-lighten fg-alt 0.25))
+   ;;;; LSP
+   (lsp-face-highlight-textual :background bg-visual-yellow :foreground yellow)
+
+   ;;;; rainbow-delimiters
+   (rainbow-delimiters-depth-1-face :foreground blue)
+   (rainbow-delimiters-depth-2-face :foreground violet)
+   (rainbow-delimiters-depth-3-face :foreground cyan)
+   (rainbow-delimiters-depth-4-face :foreground orange)
+   (rainbow-delimiters-depth-5-face :foreground green)
+   (rainbow-delimiters-depth-6-face :foreground yellow)
+   (rainbow-delimiters-depth-7-face :foreground blue)
+   (rainbow-delimiters-depth-8-face :foreground violet)
+   (rainbow-delimiters-depth-9-face :foreground cyan)
+
+   ;;;; flycheck
+   (flycheck-error   :underline `(:style wave :color ,red)    :background base3)
+   (flycheck-warning :underline `(:style wave :color ,yellow) :background base3)
+   (flycheck-info    :underline `(:style wave :color ,blue)   :background base3)
+
+   ;;
+   ;; XXX: TO BE VERIFIED
+   ;;
 
    ;;;; emacs-lisp-mode
    (highlight-quoted-symbol :foreground cyan)
@@ -303,19 +310,11 @@ background contrast. All other values default to \"medium\"."
    (ediff-fine-diff-A    :background (doom-blend red bg 0.4) :weight 'bold)
    (ediff-current-diff-A :background (doom-blend red bg 0.2))
 
-   ;;;; flycheck
-   (flycheck-error   :underline `(:style wave :color ,red)    :background base3)
-   (flycheck-warning :underline `(:style wave :color ,yellow) :background base3)
-   (flycheck-info    :underline `(:style wave :color ,blue)   :background base3)
-
    ;;;; dired
    (dired-directory :foreground cyan)
    (dired-marked :foreground yellow)
    (dired-symlink :foreground cyan)
    (dired-header :foreground cyan)
-
-   ;;;; LSP
-   (lsp-face-highlight-textual :background bg-visual-yellow :foreground yellow)
 
    ;;;; helm
    (helm-swoop-target-line-face :foreground magenta :inverse-video t)
@@ -325,19 +324,6 @@ background contrast. All other values default to \"medium\"."
 
    ;;;; highlight-symbol
    (highlight-symbol-face :background (doom-lighten base3 0.03) :distant-foreground fg-alt)
-
-   ;;;; ivy
-   (ivy-current-match :background bg-alt2)
-   (ivy-subdir :background nil :foreground cyan)
-   (ivy-action :background nil :foreground cyan)
-   (ivy-grep-line-number :background nil :foreground cyan)
-   (ivy-minibuffer-match-face-1 :background nil :foreground yellow)
-   (ivy-minibuffer-match-face-2 :background nil :foreground yellow)
-   (ivy-minibuffer-match-highlight :foreground cyan)
-   (counsel-key-binding :foreground cyan)
-   ;;;; ivy-posframe
-   (ivy-posframe :background base3)
-   (ivy-posframe-border :background base1)
 
    ;;;; LaTeX-mode
    (font-latex-math-face :foreground cyan)
@@ -369,12 +355,6 @@ background contrast. All other values default to \"medium\"."
    ;;;; mu4e-view
    (mu4e-header-key-face :foreground red :weight 'bold)
 
-   ;;;; neotree
-   (neo-root-dir-face   :foreground cyan)
-   (doom-neotree-dir-face :foreground cyan)
-   (neo-dir-link-face   :foreground cyan)
-   (neo-expand-btn-face :foreground magenta)
-
    ;;;; outline <built-in>
    ((outline-1 &override) :foreground violet)
    ((outline-2 &override) :foreground cyan)
@@ -403,12 +383,6 @@ background contrast. All other values default to \"medium\"."
    (org-todo :foreground green :bold 'inherit)
                                         ; (org-todo :foreground yellow :bold 'inherit)
    (org-verbatim :foreground yellow)
-
-   ;;;; rainbow-delimiters
-   (rainbow-delimiters-depth-1-face :foreground orange)
-   (rainbow-delimiters-depth-2-face :foreground magenta)
-   (rainbow-delimiters-depth-3-face :foreground green)
-   (rainbow-delimiters-depth-4-face :foreground blue)
 
    ;;;; show-paren <built-in>
    ((show-paren-match &override) :foreground 'unspecified :background base5 :bold t)
