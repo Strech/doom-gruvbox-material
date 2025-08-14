@@ -195,9 +195,6 @@ background contrast. All other values default to \"medium\"."
    (isearch-fail   :foreground bg-visual-red    :background bg-red)
    (lazy-highlight :foreground bg-visual-yellow :background bg-yellow :distant-foreground fg :bold bold)
 
-   ;;;; FIXME: Do we need it?
-   (tooltip :background base1 :foreground base6)
-
    ;; TODO: Maybe improve?
    (mode-line
     :background modeline-bg :foreground modeline-fg
@@ -218,11 +215,10 @@ background contrast. All other values default to \"medium\"."
    (goggles-removed :background bg-visual-red)
    (goggles-added   :background bg-visual-green)
 
-   ;;;; corfu (instead of company)
-   ;;;; https://github.com/minad/corfu/blob/main/corfu.el
-   (corfu-current     :background base3)
-   (corfu-border      :background base3)
-   (corfu-default     :background base1 :foreground fg)
+   ;;;; corfu (autocomplete popup)
+   (corfu-default     :background bg-alt :foreground fg)
+   (corfu-current     :background bg-alt2)
+   (corfu-border      :background base4)
    (corfu-bar         :background fg)
    (corfu-annotations :foreground comments)
 
@@ -233,12 +229,26 @@ background contrast. All other values default to \"medium\"."
    (doom-dashboard-footer-icon :foreground (doom-darken yellow 0.4))
    (doom-dashboard-loaded      :foreground yellow)
 
-   ;;;; LSP
+   ;;;; lsp
    (lsp-face-highlight-textual :background bg-visual-blue :foreground blue)
+
+   ;;;; rainbow-delimiters
+   (rainbow-delimiters-depth-1-face :foreground blue)
+   (rainbow-delimiters-depth-2-face :foreground violet)
+   (rainbow-delimiters-depth-3-face :foreground cyan)
+   (rainbow-delimiters-depth-4-face :foreground orange)
+   (rainbow-delimiters-depth-5-face :foreground green)
+   (rainbow-delimiters-depth-6-face :foreground yellow)
+   (rainbow-delimiters-depth-7-face :foreground blue)
+   (rainbow-delimiters-depth-8-face :foreground violet)
+   (rainbow-delimiters-depth-9-face :foreground cyan)
 
    ;;
    ;; XXX: TO BE VERIFIED
    ;;
+
+   ;;;; FIXME: Do we need it?
+   (tooltip :background base1 :foreground base6)
 
    ;;;; centaur-tabs
    (centaur-tabs-unselected :background bg-alt :foreground base4)
@@ -441,15 +451,6 @@ background contrast. All other values default to \"medium\"."
    (popup-menu-selection-face :foreground fg :background faded-green)
    (popup-menu-mouse-face :foreground fg :background faded-green)
    (popup-tip-face :foreground base5 :background base2)
-
-   ;;;; rainbow-delimiters
-   (rainbow-delimiters-depth-3-face :foreground delimiter-3)
-   (rainbow-delimiters-depth-4-face :foreground faded-orange)
-   (rainbow-delimiters-depth-7-face :foreground delimiter-3)
-   (rainbox-delimiters-depth-8-face :foreground faded-orange)
-   (rainbow-delimiters-depth-11-face :foreground delimiter-3)
-   (rainbox-delimiters-depth-12-face :foreground faded-orange)
-   (rainbow-delimiters-unmatched-face: :foreground fg)
 
    ;;;; swiper
    (swiper-line-face    :background base3 :foreground base0)
