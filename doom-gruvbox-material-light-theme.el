@@ -163,20 +163,20 @@ background contrast. All other values default to \"medium\"."
    ;; face categories -- required for all themes
    (highlight      blue)
    (vertical-bar   (doom-darken base1 0.1))
-   (selection      base3)
-   (builtin        orange)
+   (selection      base3)    ;;
+   (builtin        orange)   ;; the require, load, puts, lambda, etc.
    (comments       (doom-blend grey base8 0.5))
    (doc-comments   (doom-darken green 0.15))
-   (constants      violet)
-   (functions      green)
-   (keywords       red)
-   (methods        cyan)
-   (operators      blue)
-   (type           violet)
-   (strings        yellow)
-   (variables      blue)
-   (numbers        violet)
-   (region         bg-alt2)
+   (constants      violet)   ;; the symbols, true, false, etc.
+   (functions      yellow)   ;; the definition (name) of the function
+   (keywords       red)      ;; the module, class, return, unless, if, end, etc.
+   (methods        cyan)     ;; ???
+   (operators      blue)     ;; ???
+   (type           blue)     ;; the constants and classes/modules names
+   (strings        green)    ;; the strings with quotes
+   (variables      cyan)     ;; the instance or class variable names, interpolation
+   (numbers        violet)   ;; the numbers
+   (region         bg-alt2)  ;; the selection of the area
    (error          red)
    (warning        orange)
    (success        green)
