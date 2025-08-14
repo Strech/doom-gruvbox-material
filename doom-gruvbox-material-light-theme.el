@@ -206,8 +206,8 @@ background contrast. All other values default to \"medium\"."
    (modeline-fg     'unspecified)
    (modeline-fg-alt (doom-blend violet base4 0.2))
 
-   (modeline-bg base1)
-   (modeline-bg-l base2)
+   (modeline-bg base3)
+   (modeline-bg-l base3)
    (modeline-bg-inactive (doom-darken bg 0.1))
    (modeline-bg-inactive-l `(,(doom-darken (car bg-alt) 0.05) ,@(cdr base1))))
 
@@ -220,9 +220,9 @@ background contrast. All other values default to \"medium\"."
    ((line-number-current-line &override) :foreground orange)
 
    ;;;; isearch
-   (isearch        :foreground violet        :background bg-visual-purple)
-   (isearch-fail   :foreground bg-visual-red :background bg-red)
-   (lazy-highlight :foreground violet        :background bg-visual-purple :distant-foreground fg :bold bold)
+   (isearch        :foreground bg-visual-purple :background violet)
+   (isearch-fail   :foreground bg-visual-red    :background bg-red)
+   (lazy-highlight :foreground violet           :background bg-visual-purple :distant-foreground fg :bold bold)
 
    ;;;; FIXME: Do we need it?
    (tooltip :background base1 :foreground base6)
@@ -259,8 +259,10 @@ background contrast. All other values default to \"medium\"."
    ;; (anzu-match-3           :background aquamarine4)
    ;; (anzu-replace-to        :foreground yellow)
    ;; (anzu-replace-highlight :inherit 'isearch)
+
    ;;;; centaur-tabs
    (centaur-tabs-unselected :background bg-alt :foreground base4)
+
    ;;;; company
    (company-scrollbar-bg                      :background base1)
    (company-scrollbar-fg                      :background bg-alt)
@@ -275,12 +277,15 @@ background contrast. All other values default to \"medium\"."
    (company-preview-search                    :background turquoise4)
    (company-template-field                    :foreground "black" :background yellow)
    (company-echo-common                       :foreground faded-red)
+
    ;;;; css-mode <built-in> / scss-mode
    (css-proprietary-property :foreground orange)
    (css-property             :foreground green)
    (css-selector             :foreground blue)
+
    ;;;; doom-modeline
    (doom-modeline-bar :background highlight)
+
    ;;;; diredfl
    (diredfl-autofile-name :foreground base5)
    (diredfl-compressed-file-name :foreground base5)
@@ -323,19 +328,23 @@ background contrast. All other values default to \"medium\"."
    (diff-indicator-changed         :inherit 'diff-changed)
    (diff-indicator-added           :inherit 'diff-added)
    (diff-indicator-removed         :inherit 'diff-removed)
+
    ;;;; ediff <built-in>
    (ediff-current-diff-A        :foreground red   :background (doom-lighten red 0.8))
    (ediff-current-diff-B        :foreground green :background (doom-lighten green 0.8))
    (ediff-current-diff-C        :foreground blue  :background (doom-lighten blue 0.8))
    (ediff-current-diff-Ancestor :foreground teal  :background (doom-lighten teal 0.8))
+
    ;;;; elfeed
    (elfeed-search-title-face :foreground grey)
    (elfeed-search-date-face :inherit 'font-lock-builtin-face :underline t)
    (elfeed-search-tag-face :inherit 'font-lock-keyword-face)
    (elfeed-search-unread-count-face :inherit 'font-lock-comment-face)
    (elfeed-search-filter-face :inherit 'font-lock-string-face)
+
    ;;;; flycheck
    (flycheck-info :underline `(:style wave :color ,blue))
+
    ;;;; git-gutter
    (git-gutter:modified :foreground faded-blue :background blue)
    (git-gutter:added    :foreground faded-green :background green)
@@ -344,6 +353,7 @@ background contrast. All other values default to \"medium\"."
    (git-gutter+-modified :foreground faded-blue :background blue)
    (git-gutter+-added    :foreground faded-green :background green)
    (git-gutter+-deleted  :foreground faded-red :backgrond red)
+
    ;;;; helm
    (helm-candidate-number       :background blue :foreground bg)
    (helm-M-x-key                :foreground orange)
@@ -388,13 +398,16 @@ background contrast. All other values default to \"medium\"."
    (helm-separator              :foreground faded-red)
    (helm-source-header          :foreground base5)
    (helm-visible-mark           :foreground "black" :background light3)
+
    ;;;; ivy
    (ivy-minibuffer-match-face-1     :foreground orange)
    (ivy-minibuffer-match-face-2     :foreground yellow)
    (ivy-minibuffer-match-face-3     :foreground faded-orange)
    (ivy-minibuffer-match-face-4     :foreground faded-yellow)
+
    ;;;; ivy-posframe
    (ivy-posframe               :background bg-alt)
+
    ;;;; js2-mode
    (js2-warning                    :underline `(:style wave :color ,yellow))
    (js2-error                      :underline `(:style wave :color ,red))
@@ -409,10 +422,12 @@ background contrast. All other values default to \"medium\"."
    (js2-private-function-call      :foreground faded-aqua)
    (js2-jsdoc-html-tag-name        :foreground light4)
    (js2-jsdoc-html-tag-delimiter   :foreground light3)
+
    ;;;; lsp-mode
    (lsp-face-highlight-textual     :background (doom-blend bg orange 0.9) :foreground base0 :distant-foreground base8)
    ;;;; lsp-ui
    (lsp-ui-doc-background          :background base2)
+
    ;;;; magit
    (magit-bisect-bad                      :foreground faded-red)
    (magit-bisect-good                     :foreground faded-green)
@@ -468,6 +483,7 @@ background contrast. All other values default to \"medium\"."
    (magit-signature-revoked               :foreground violet)
    (magit-signature-untrusted             :foreground blue)
    (magit-tag                             :foreground yellow)
+
    ;;;; markdown-mode
    (markdown-markup-face     :foreground base5)
    (markdown-header-face     :inherit 'bold :foreground red)
@@ -540,11 +556,13 @@ background contrast. All other values default to \"medium\"."
    (org-habit-alert-future-face   :background yellow)
    (org-habit-overdue-face        :background faded-red)
    (org-habit-overdue-future-face :background red)
+
    ;;;; popup
    (popup-face :foreground base6  :background base1)
    (popup-menu-selection-face :foreground fg :background faded-green)
    (popup-menu-mouse-face :foreground fg :background faded-green)
    (popup-tip-face :foreground base5 :background base2)
+
    ;;;; rainbow-delimiters
    (rainbow-delimiters-depth-3-face :foreground delimiter-3)
    (rainbow-delimiters-depth-4-face :foreground faded-orange)
@@ -553,6 +571,7 @@ background contrast. All other values default to \"medium\"."
    (rainbow-delimiters-depth-11-face :foreground delimiter-3)
    (rainbox-delimiters-depth-12-face :foreground faded-orange)
    (rainbow-delimiters-unmatched-face: :foreground fg)
+
    ;;;; swiper
    (swiper-line-face    :background base3 :foreground base0)
    (swiper-match-face-1 :inherit 'unspecified :background base1  :foreground base5)
@@ -563,6 +582,7 @@ background contrast. All other values default to \"medium\"."
    (swiper-background-match-face-2 :inherit 'unspecified :background base3)
    (swiper-background-match-face-3 :inherit 'unspecified :background base4)
    (swiper-background-match-face-4 :inherit 'unspecified :background base5)
+
    ;;;; solaire-mode
    (solaire-mode-line-face
     :inherit 'mode-line
@@ -572,6 +592,7 @@ background contrast. All other values default to \"medium\"."
     :inherit 'mode-line-inactive
     :background modeline-bg-inactive-l
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive-l)))
+
    ;;;; vterm
    (vterm-color-black   :background grey    :foreground base1)
    (vterm-color-red     :background red     :foreground faded-red)
@@ -585,10 +606,11 @@ background contrast. All other values default to \"medium\"."
    (web-mode-current-element-highlight-face :background dark-blue :foreground bg)
    ;;;; wgrep <built-in>
    (wgrep-face :background base1)
-   ;;;; whitespace <built-in>
-   (whitespace-trailing :foreground red :background base1)
-   (whitespace-line :foreground red :background base1)
-   (whitespace-indentation :foreground base4 :background bg)
+
+   ;;;; whitespace <built-in> FIXME: verify
+   (whitespace-trailing    :foreground bg-red :background base1)
+   (whitespace-line        :foreground bg-red :background base1)
+   (whitespace-indentation :foreground base4  :background bg)
    (whitespace-empty))
 
   ;;;; Base theme variable overrides-
