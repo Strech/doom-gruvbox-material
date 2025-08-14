@@ -135,10 +135,8 @@ background contrast. All other values default to \"medium\"."
    (faded-blue        '("#458588" "#87afaf" "blue"          ))
    (faded-orange      '("#d65d0e" "#ff8700" "brightorange"  ))
    (faded-aqua        '("#689d6a" "#87af87" "brightcyan"    ))
-   (dark-red          '("#421E1E" "#5f0000"                 ))
    (dark-aqua         '("#36473A" "#005f5f"                 ))
    (sienna            '("#dd6f48" "d7875f"                  ))
-   (lightblue4        '("#66999D" "#5fafaf" "brightblue"    ))
    (burlywood4        '("#BBAA97" "#aafaf87"                ))
    (aquamarine4       '("#83af98" "#87af87"                 ))
    (turquoise4        '("#61ACBB" "#5fafaf" "brightblue"    ))
@@ -220,9 +218,11 @@ background contrast. All other values default to \"medium\"."
    (goggles-added   :background bg-visual-green)
 
    ;;;; corfu (instead of company)
-   (corfu-current :background base3)
-   (corfu-border  :background base3)
-   (corfu-default :background base1 :foreground fg)
+   ;;;; https://github.com/minad/corfu/blob/main/corfu.el
+   (corfu-current     :background base3)
+   (corfu-border      :background base3)
+   (corfu-default     :background base1 :foreground fg)
+   (corfu-bar         :background fg)
    (corfu-annotations :foreground comments)
 
    ;;;; anzu FIXME: Remove
@@ -237,19 +237,19 @@ background contrast. All other values default to \"medium\"."
    (centaur-tabs-unselected :background bg-alt :foreground base4)
 
    ;;;; company
-   (company-scrollbar-bg                      :background base1)
-   (company-scrollbar-fg                      :background bg-alt)
-   (company-tooltip                           :background bg-alt)
-   (company-tooltip-annotation                :foreground green)
-   (company-tooltip-annotation-selection      :inherit 'company-tooltip-annotation)
-   (company-tooltip-selection                 :foreground violet :background base2)
-   (company-tooltip-common                    :foreground blue :underline t)
-   (company-tooltip-common-selection          :foreground blue :underline t)
-   (company-preview-common                    :foreground base7)
-   (company-preview                           :background lightblue4)
-   (company-preview-search                    :background turquoise4)
-   (company-template-field                    :foreground "black" :background yellow)
-   (company-echo-common                       :foreground faded-red)
+   ;; (company-scrollbar-bg                      :background base1)
+   ;; (company-scrollbar-fg                      :background bg-alt)
+   ;; (company-tooltip                           :background bg-alt)
+   ;; (company-tooltip-annotation                :foreground green)
+   ;; (company-tooltip-annotation-selection      :inherit 'company-tooltip-annotation)
+   ;; (company-tooltip-selection                 :foreground violet :background base2)
+   ;; (company-tooltip-common                    :foreground blue :underline t)
+   ;; (company-tooltip-common-selection          :foreground blue :underline t)
+   ;; (company-preview-common                    :foreground base7)
+   ;; (company-preview                           :background lightblue4)
+   ;; (company-preview-search                    :background turquoise4)
+   ;; (company-template-field                    :foreground "black" :background yellow)
+   ;; (company-echo-common                       :foreground faded-red)
 
    ;;;; css-mode <built-in> / scss-mode
    (css-proprietary-property :foreground orange)
@@ -466,20 +466,16 @@ background contrast. All other values default to \"medium\"."
    (markdown-header-face-4          :foreground red)
    (markdown-header-face-5          :foreground green)
    (markdown-header-face-6          :foreground dark-cyan)
-   ;;;; message <built-in>
-   (message-header-cc :inherit 'font-lock-variable-name-face)
-   (message-header-subject :foreground orange :weight 'bold)
-   (message-header-other :inherit 'font-lock-variable-name-face)
-   (message-header-name :inherit 'font-lock-keyword-face)
-   (message-cited-text :inherit 'font-lock-comment-face)
-   (message-mml :foregrond faded-green :weight 'bold)
+
    ;;;; mu4e
    (mu4e-highlight-face :foreground green)
    (mu4e-unread-face :foreground blue :weight 'bold)
    (mu4e-header-key-face :foreground green :weight 'bold)
+
    ;;;; outline <built-in>
    ((outline-1 &override) :foreground red)
    ((outline-2 &override) :foreground orange)
+
    ;;;; org <built-in>
    (org-agenda-date-today       :foreground base7 :weight 'bold :italic t)
    (org-agenda-done             :foreground cyan)
