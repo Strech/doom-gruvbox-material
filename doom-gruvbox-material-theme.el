@@ -303,14 +303,6 @@ background contrast. All other values default to \"medium\"."
    (ediff-fine-diff-A    :background (doom-blend red bg 0.4) :weight 'bold)
    (ediff-current-diff-A :background (doom-blend red bg 0.2))
 
-   ;;;; evil
-   (evil-search-highlight-persist-highlight-face :background yellow)
-   (evil-ex-substitute-replacement :foreground cyan :strike-through nil :inherit 'evil-ex-substitute-matches)
-
-   ;;;; evil-snipe
-   (evil-snipe-first-match-face :foreground "white" :background yellow)
-   (evil-snipe-matches-face     :foreground yellow :bold t :underline t)
-
    ;;;; flycheck
    (flycheck-error   :underline `(:style wave :color ,red)    :background base3)
    (flycheck-warning :underline `(:style wave :color ,yellow) :background base3)
@@ -321,6 +313,9 @@ background contrast. All other values default to \"medium\"."
    (dired-marked :foreground yellow)
    (dired-symlink :foreground cyan)
    (dired-header :foreground cyan)
+
+   ;;;; LSP
+   (lsp-face-highlight-textual :background bg-visual-yellow :foreground yellow)
 
    ;;;; helm
    (helm-swoop-target-line-face :foreground magenta :inverse-video t)
