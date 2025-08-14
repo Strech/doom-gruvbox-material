@@ -249,14 +249,27 @@ All other values default to \"medium\"."
 
    ;;;; flycheck
    ;;;; FIXME: On Emacs load this is not applied
-   (flycheck-info :underline `(:style wave :color ,blue))
+   (flycheck-error   :underline `(:style wave :color ,red)    :background base3)
+   (flycheck-warning :underline `(:style wave :color ,yellow) :background base3)
+   (flycheck-info    :underline `(:style wave :color ,cyan)   :background base3)
+
+   ;;;; doom-modeline
+   (doom-modeline-project-dir       :bold t        :foreground blue)
+   (doom-modeline-buffer-path       :inherit 'bold :foreground green)
+   (doom-modeline-buffer-file       :inherit 'bold :foreground fg)
+   (doom-modeline-buffer-modified   :inherit 'bold :foreground orange)
+   (doom-modeline-buffer-major-mode :inherit 'bold :foreground violet)
+
+   (doom-modeline-error   :foreground red)
+   (doom-modeline-warning :foreground yellow)
+   (doom-modeline-info    :foreground cyan)
 
    ;;;; popup (hints and popups?)
    ;;;; TODO: Define rest
    ;; (popup-face :foreground fg  :background bg-alt)
    ;; (popup-menu-selection-face :foreground fg :background bg-alt2)
    ;; (popup-menu-mouse-face :foreground fg :background bg-alt2)
-   (popup-tip-face :foreground fg :background bg-alt)
+   ;; (popup-tip-face :foreground fg :background bg-alt)
 
    ;;
    ;; XXX: TO BE VERIFIED
