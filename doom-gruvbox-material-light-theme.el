@@ -67,36 +67,6 @@ background contrast. All other values default to \"medium\"."
         palette/grey0            '("#a89984" "#000000" "unknown")
         palette/grey1            '("#928374" "#000000" "unknown")
         palette/grey2            '("#7c6f64" "#000000" "unknown")
-
-        ;; ------------------ TODO: REMOVE -------------------------------------
-        var/bg          '("#f2e5bc" "#f2e5bc" nil) ;; bg0
-        var/bg-alt      '("#f2e5bc" "#f2e5bc" nil) ;; bg0
-        var/base0       '("#ebdbb2" "#f2e5bc" nil)
-        var/base1       '("#eddeb5" "#f2e5bc" nil)
-        var/base2       '("#ebdbb2" "#f2e5bc" nil)
-        var/base3       '("#e6d5ae" "#f2e5bc" nil)
-        var/base4       '("#dac9a5" "#f2e5bc" nil)
-        var/base5       '("#d5c4a1" "#f2e5bc" nil)
-        var/base6       '("#d5c4a1" "#f2e5bc" nil)
-        var/base7       '("#a89984" "#f2e5bc" nil)
-        var/base8       '("#a89984" "#f2e5bc" nil)
-        var/fg          '("#654735" "#f2e5bc" nil)
-        var/fg-alt      '("#4f3829" "#f2e5bc" nil)
-        var/grey0       '("#a89984" "#f2e5bc" nil)
-        var/grey1       '("#928374" "#f2e5bc" nil)
-        var/grey2       '("#7c6f64" "#f2e5bc" nil)
-        var/red         '("#c14a4a" "#f2e5bc" nil)
-        var/magenta     '("#945e80" "#f2e5bc" nil)
-        var/violet      '("#945e80" "#f2e5bc" nil)
-        var/orange      '("#c35e0a" "#f2e5bc" nil)
-        var/yellow      '("#b47109" "#f2e5bc" nil)
-        var/teal        '("#4c7a5d" "#f2e5bc" nil)
-        var/green       '("#6c782e" "#f2e5bc" nil)
-        var/blue        '("#45707a" "#f2e5bc" nil)
-        var/cyan        '("#4c7a5d" "#f2e5bc" nil)
-        var/bg-statusline1 '("#ebdbb2" "#000000" nil)
-        var/bg-statusline2 '("#ebdbb2" "#000000" nil)
-        var/bg-statusline3 '("#dac9a5" "#000000" nil)
         ))
  (t   ;; doom-gruvbox-material-light-variant "medium"
   ;;    name                        UI        256       16
@@ -112,34 +82,35 @@ background contrast. All other values default to \"medium\"."
   :background-mode 'light
 
   ((bg      palette/bg0)
-   (bg-alt  palette/bg0)
-   (bg-alt2 var/bg-statusline3)  ; for region, selection etc.
+   (bg-alt  palette/bg-current-word)
+   (bg-alt2 palette/bg-statusline3)  ; for region, selection etc.
 
    (fg      palette/fg0)
    (fg-alt  palette/fg1)
 
-   (base0  var/base0)
-   (base1  var/base1)
-   (base2  var/base2)
-   (base3  var/base3)
-   (base4  var/base4)
-   (base5  var/base5)
-   (base6  var/base6)
-   (base7  var/base7)
-   (base8  var/base8)
+   (base0  palette/bg-dim)
+   (base1  palette/bg1)
+   (base2  palette/bg2)
+   (base3  palette/bg3)
+   (base4  palette/bg4)
+   (base5  palette/bg5)
+   (base6  palette/bg5)
+   (base7  palette/grey0)
+   (base8  palette/grey0)
 
-   (grey      var/grey1)
-   (red       var/red)
-   (orange    var/orange)
-   (green     var/green)
-   (teal      var/teal)
-   (yellow    var/yellow)
-   (blue      var/blue)
-   (dark-blue var/blue)
-   (magenta   var/magenta)
-   (violet    var/violet)
-   (cyan      var/cyan)
-   (dark-cyan var/cyan)
+   (red       palette/red)
+   (orange    palette/orange)
+   (yellow    palette/yellow)
+   (green     palette/green)
+   (teal      palette/aqua)
+   (blue      palette/blue)
+   (cyan      palette/aqua)
+   (magenta   palette/purple)
+   (violet    palette/purple)
+   (grey      palette/grey2)
+
+   (dark-blue palette/blue)
+   (dark-cyan palette/aqua)
 
    ;; Extra colors
    (bg-visual-red    palette/bg-visual-red)
@@ -149,6 +120,7 @@ background contrast. All other values default to \"medium\"."
    (bg-visual-purple palette/bg-visual-purple)
    (bg-diff-red      palette/bg-diff-red)
    (bg-diff-green    palette/bg-diff-green)
+   (bg-diff-blue     palette/bg-diff-blue)
    (bg-red           palette/bg-red)
    (bg-green         palette/bg-green)
    (bg-yellow        palette/bg-yellow)
@@ -164,7 +136,6 @@ background contrast. All other values default to \"medium\"."
    (faded-orange      '("#d65d0e" "#ff8700" "brightorange"  ))
    (faded-aqua        '("#689d6a" "#87af87" "brightcyan"    ))
    (dark-red          '("#421E1E" "#5f0000"                 ))
-   (dark-blue         '("#2B3C44" "#000087"                 ))
    (dark-aqua         '("#36473A" "#005f5f"                 ))
    (sienna            '("#dd6f48" "d7875f"                  ))
    (lightblue4        '("#66999D" "#5fafaf" "brightblue"    ))
@@ -189,9 +160,11 @@ background contrast. All other values default to \"medium\"."
    (variables      cyan)    ;; the instance or class variable names, interpolation
    (numbers        violet)  ;; the numbers
    (region         bg-alt2) ;; the selection of the area
+
    (error          red)
    (warning        orange)
    (success        green)
+
    (vc-modified    orange)
    (vc-added       green)
    (vc-deleted     red)
@@ -206,8 +179,8 @@ background contrast. All other values default to \"medium\"."
    (modeline-fg     'unspecified)
    (modeline-fg-alt (doom-blend violet base4 0.2))
 
-   (modeline-bg base3)
-   (modeline-bg-l base3)
+   (modeline-bg bg-alt)
+   (modeline-bg-l bg-alt)
    (modeline-bg-inactive (doom-darken bg 0.1))
    (modeline-bg-inactive-l `(,(doom-darken (car bg-alt) 0.05) ,@(cdr base1))))
 
