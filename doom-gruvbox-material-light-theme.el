@@ -220,9 +220,9 @@ background contrast. All other values default to \"medium\"."
    ((line-number-current-line &override) :foreground orange)
 
    ;;;; isearch
-   (isearch        :foreground bg-visual-purple :background violet)
+   (isearch        :foreground bg-visual-yellow :background orange)
    (isearch-fail   :foreground bg-visual-red    :background bg-red)
-   (lazy-highlight :foreground violet           :background bg-visual-purple :distant-foreground fg :bold bold)
+   (lazy-highlight :foreground bg-visual-yellow :background bg-yellow :distant-foreground fg :bold bold)
 
    ;;;; FIXME: Do we need it?
    (tooltip :background base1 :foreground base6)
