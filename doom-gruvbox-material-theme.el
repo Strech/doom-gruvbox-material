@@ -227,13 +227,17 @@ background contrast. All other values default to \"medium\"."
   ;;;; Base theme face overrides
   ((button :foreground cyan :underline t :weight 'bold)
    (cursor :background grey)
+
    (hl-line :background base2)
    ((line-number &override) :foreground (doom-darken fg-alt 0.4))
    ((line-number-current-line &override) :background base2 :foreground yellow)
+
    (isearch :foreground base0 :background orange)
    (lazy-highlight :background yellow :foreground base0 :distant-foreground base0 :bold bold)
+
    ((link &override) :foreground violet)
    (minibuffer-prompt :foreground cyan)
+
    (mode-line
     :background base0 :foreground modeline-fg
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg)))

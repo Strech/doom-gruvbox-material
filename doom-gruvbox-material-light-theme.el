@@ -141,6 +141,18 @@ background contrast. All other values default to \"medium\"."
    (cyan      var/cyan)
    (dark-cyan var/cyan)
 
+   ;; Extra colors
+   (bg-visual-red    palette/bg-visual-red)
+   (bg-visual-green  palette/bg-visual-green)
+   (bg-visual-blue   palette/bg-visual-blue)
+   (bg-visual-yellow palette/bg-visual-yellow)
+   (bg-visual-purple palette/bg-visual-purple)
+   (bg-diff-red      palette/bg-diff-red)
+   (bg-diff-green    palette/bg-diff-green)
+   (bg-red           palette/bg-red)
+   (bg-green         palette/bg-green)
+   (bg-yellow        palette/bg-yellow)
+
    ;; Extra FIXME: Get rid of it
    (delimiter-3       '("#8ec07c" "#87af87"                 ))
    (light3            '("#665c54" "#626262" "grey"          ))
@@ -201,12 +213,20 @@ background contrast. All other values default to \"medium\"."
 
   ;;;; Base theme face overrides
   ((cursor :background (doom-lighten fg 0.1))
+
+   ;;;; Current line and line number
    (hl-line :background base0)
-   (isearch           :foreground "black" :background orange)
-   (isearch-fail      :foreground fg :background red)
-   (lazy-highlight    :background base2  :foreground base8 :distant-foreground base0 :weight 'bold)
    ((line-number &override) :foreground (doom-lighten fg-alt 0.45))
    ((line-number-current-line &override) :foreground orange)
+
+   ;;;; isearch
+   (isearch        :foreground violet        :background bg-visual-purple)
+   (isearch-fail   :foreground bg-visual-red :background bg-red)
+   (lazy-highlight :foreground violet        :background bg-visual-purple :distant-foreground fg :bold bold)
+
+   ;;;; FIXME: Do we need it?
+   (tooltip :background base1 :foreground base6)
+
    (mode-line
     :background modeline-bg :foreground modeline-fg
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg)))
@@ -214,7 +234,6 @@ background contrast. All other values default to \"medium\"."
     :background modeline-bg-inactive :foreground modeline-fg-alt
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive)))
    (mode-line-emphasis :foreground highlight)
-   (tooltip :background base1 :foreground base6)
 
    ;;;; FCI
    (fill-column-indicator :foreground base2 :background nil)
@@ -222,13 +241,24 @@ background contrast. All other values default to \"medium\"."
    ;;;; nav-flash (current line flashing on big move)
    (nav-flash-face :background bg-alt2)
 
-   ;;;; anzu
-   (anzu-mode-line         :foreground yellow :weight 'bold)
-   (anzu-match-1           :background green)
-   (anzu-match-2           :background faded-yellow)
-   (anzu-match-3           :background aquamarine4)
-   (anzu-replace-to        :foreground yellow)
-   (anzu-replace-highlight :inherit 'isearch)
+   ;;;; goggles (areas highlight on action)
+   (goggles-changed :background bg-visual-blue)
+   (goggles-removed :background bg-visual-red)
+   (goggles-added   :background bg-visual-green)
+
+   ;;;; corfu (instead of company)
+   (corfu-current :background base3)
+   (corfu-border  :background base3)
+   (corfu-default :background base1 :foreground fg)
+   (corfu-annotations :foreground violet)
+
+   ;;;; anzu FIXME: Remove
+   ;; (anzu-mode-line         :foreground yellow :weight 'bold)
+   ;; (anzu-match-1           :background green)
+   ;; (anzu-match-2           :background faded-yellow)
+   ;; (anzu-match-3           :background aquamarine4)
+   ;; (anzu-replace-to        :foreground yellow)
+   ;; (anzu-replace-highlight :inherit 'isearch)
    ;;;; centaur-tabs
    (centaur-tabs-unselected :background bg-alt :foreground base4)
    ;;;; company
@@ -279,12 +309,14 @@ background contrast. All other values default to \"medium\"."
    (diredp-dir-priv :foreground faded-blue :background dark-blue)
    ((diredp-dir-exec-priv &inherit diredp-dir-priv))
    (diredp-link-priv :foreground faded-aqua)
+
    ;;;; doom-emacs
    (doom-dashboard-banner      :foreground (doom-darken base4 0.3))
    (doom-dashboard-menu-title  :foreground green)
    (doom-dashboard-menu-desc   :foreground green)
    (doom-dashboard-footer-icon :foreground (doom-darken yellow 0.4))
    (doom-dashboard-loaded      :foreground yellow)
+
    ;;;; diff-mode
    (diff-changed                   :foreground base6)
    (diff-removed                   :foreground red)
