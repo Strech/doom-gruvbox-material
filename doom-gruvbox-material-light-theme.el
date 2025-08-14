@@ -12,14 +12,14 @@
   :group 'doom-themes)
 
 (defcustom doom-gruvbox-material-light-padded-modeline doom-themes-padded-modeline
-  "If non-nil, adds a 4px padding to the mode-line. Can be an integer to
-determine the exact padding."
+  "If non-nil, adds a 4px padding to the mode-line.
+Can be an integer to determine the exact padding."
   :group 'doom-gruvbox-material-light-theme
   :type '(choice integer boolean))
 
 (defcustom doom-gruvbox-material-light-variant nil
-  "A choice of \"hard\" or \"soft\" can be used to change the
-background contrast. All other values default to \"medium\"."
+  "A choice of \"hard\" or \"soft\" can be used to change the background contrast.
+All other values default to \"medium\"."
   :group 'doom-gruvbox-material-light-theme
   :type  'string)
 
@@ -144,20 +144,20 @@ background contrast. All other values default to \"medium\"."
    ;; face categories -- required for all themes
    (highlight      blue)
    (vertical-bar   (doom-darken base1 0.1))
-   (selection      base3)    ;;
-   (builtin        orange)   ;; the require, load, puts, lambda, etc.
+   (selection      base3)   ; ???
+   (builtin        orange)  ; the require, load, puts, lambda, etc.
    (comments       (doom-blend grey base8 0.5))
    (doc-comments   (doom-darken green 0.15))
-   (constants      violet)  ;; the symbols, true, false, etc.
-   (functions      yellow)  ;; the definition (name) of the function
-   (keywords       red)     ;; the module, class, return, unless, if, end, etc.
-   (methods        cyan)    ;; ???
-   (operators      blue)    ;; ???
-   (type           blue)    ;; the constants and classes/modules names
-   (strings        green)   ;; the strings with quotes
-   (variables      cyan)    ;; the instance or class variable names, interpolation
-   (numbers        violet)  ;; the numbers
-   (region         bg-alt2) ;; the selection of the area
+   (constants      violet)  ; the symbols, true, false, etc.
+   (functions      yellow)  ; the definition (name) of the function
+   (keywords       red)     ; the module, class, return, unless, if, end, etc.
+   (methods        cyan)    ; ???
+   (operators      blue)    ; ???
+   (type           blue)    ; the constants and classes/modules names
+   (strings        green)   ; the strings with quotes
+   (variables      cyan)    ; the instance or class variable names, interpolation
+   (numbers        violet)  ; the numbers
+   (region         bg-alt2) ; the selection of the area
 
    (error          red)
    (warning        orange)
@@ -243,12 +243,24 @@ background contrast. All other values default to \"medium\"."
    (rainbow-delimiters-depth-8-face :foreground violet)
    (rainbow-delimiters-depth-9-face :foreground cyan)
 
+   ;;;; tooltip
+   ;;;; TODO: Not sure where it is applied
+   (tooltip :background bg-alt :foreground fg)
+
+   ;;;; flycheck
+   ;;;; FIXME: On Emacs load this is not applied
+   (flycheck-info :underline `(:style wave :color ,blue))
+
+   ;;;; popup (hints and popups?)
+   ;;;; TODO: Define rest
+   ;; (popup-face :foreground fg  :background bg-alt)
+   ;; (popup-menu-selection-face :foreground fg :background bg-alt2)
+   ;; (popup-menu-mouse-face :foreground fg :background bg-alt2)
+   (popup-tip-face :foreground fg :background bg-alt)
+
    ;;
    ;; XXX: TO BE VERIFIED
    ;;
-
-   ;;;; FIXME: Do we need it?
-   (tooltip :background base1 :foreground base6)
 
    ;;;; centaur-tabs
    (centaur-tabs-unselected :background bg-alt :foreground base4)
@@ -302,9 +314,6 @@ background contrast. All other values default to \"medium\"."
    (ediff-current-diff-B        :foreground green :background (doom-lighten green 0.8))
    (ediff-current-diff-C        :foreground blue  :background (doom-lighten blue 0.8))
    (ediff-current-diff-Ancestor :foreground teal  :background (doom-lighten teal 0.8))
-
-   ;;;; flycheck
-   (flycheck-info :underline `(:style wave :color ,blue))
 
    ;;;; js2-mode
    (js2-warning                    :underline `(:style wave :color ,yellow))
@@ -445,12 +454,6 @@ background contrast. All other values default to \"medium\"."
    (org-habit-alert-future-face   :background yellow)
    (org-habit-overdue-face        :background faded-red)
    (org-habit-overdue-future-face :background red)
-
-   ;;;; popup
-   (popup-face :foreground base6  :background base1)
-   (popup-menu-selection-face :foreground fg :background faded-green)
-   (popup-menu-mouse-face :foreground fg :background faded-green)
-   (popup-tip-face :foreground base5 :background base2)
 
    ;;;; swiper
    (swiper-line-face    :background base3 :foreground base0)
