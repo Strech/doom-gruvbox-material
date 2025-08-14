@@ -216,7 +216,7 @@ background contrast. All other values default to \"medium\"."
           doom-gruvbox-material-padded-modeline
         4)))
 
-   (modeline-bg bg-alt2)
+   (modeline-bg base3)
    (modeline-fg (doom-lighten fg-alt 0.25))
    (modeline-inactive-bg (doom-darken modeline-bg 0.15))
    (modeline-inactive-fg base6)
@@ -232,17 +232,18 @@ background contrast. All other values default to \"medium\"."
    ((line-number &override) :foreground (doom-darken fg-alt 0.4))
    ((line-number-current-line &override) :background base2 :foreground yellow)
 
-   (isearch :foreground base0 :background orange)
-   (lazy-highlight :background yellow :foreground base0 :distant-foreground base0 :bold bold)
+   (isearch        :foreground bg-visual-yellow :background orange)
+   (isearch-fail   :foreground bg-visual-red    :background red)
+   (lazy-highlight :foreground bg-visual-yellow :background yellow :distant-foreground fg :bold bold)
 
    ((link &override) :foreground violet)
    (minibuffer-prompt :foreground cyan)
 
    (mode-line
-    :background base0 :foreground modeline-fg
+    :background modeline-bg :foreground modeline-fg
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg)))
    (mode-line-inactive
-    :background bg :foreground base4
+    :background modeline-inactive-bg :foreground modeline-inactive-fg
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-inactive-bg)))
 
    ;;;; FCI
