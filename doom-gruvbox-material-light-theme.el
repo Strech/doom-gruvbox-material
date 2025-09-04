@@ -271,6 +271,12 @@ All other values default to \"medium\"."
    ;; (popup-menu-mouse-face :foreground fg :background bg-alt2)
    ;; (popup-tip-face :foreground fg :background bg-alt)
 
+   ;;;; consult
+   (consult-highlight-match :foreground bg-visual-yellow :background bg-yellow)
+   ;;(consult-highlight-mark ??)
+   ;; (consult-grep-context :foreground orange)
+   ;; (consult-separator) ; line number?
+
    ;;
    ;; XXX: TO BE VERIFIED
    ;;
