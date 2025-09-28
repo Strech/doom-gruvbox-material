@@ -285,6 +285,8 @@ All other values default to \"medium\"."
    (magit-section-highlight           :foreground fg                       :background bg-alt2)
    (magit-diff-hunk-heading           :foreground bg-alt                   :background (doom-lighten bg-yellow 0.4))
    (magit-diff-hunk-heading-highlight :foreground bg-alt                   :background bg-yellow)
+   (magit-diff-hunk-heading-selection :foreground bg-alt                   :background orange)
+   (magit-diff-lines-boundary         :foreground bg-alt                   :background orange)
    (magit-diff-context                :foreground (doom-lighten fg 0.4)    :background bg)
    (magit-diff-context-highlight      :foreground fg                       :background bg)
    (magit-diff-lines-heading          :foreground bg-alt                   :background orange)
