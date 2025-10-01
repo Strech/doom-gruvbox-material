@@ -96,7 +96,7 @@ All other values default to \"medium\"."
    (base5  palette/bg5)
    (base6  palette/bg5)
    (base7  palette/grey0)
-   (base8  palette/grey0)
+   (base8  palette/grey1)
 
    (red       palette/red)
    (orange    palette/orange)
@@ -282,9 +282,9 @@ All other values default to \"medium\"."
    (diff-refine-removed :foreground bg-alt :background bg-red)
 
    ;;;; magit
-   (magit-section-highlight           :foreground fg                       :background bg-alt2)
-   (magit-diff-hunk-heading           :foreground bg-alt                   :background (doom-lighten bg-yellow 0.4))
-   (magit-diff-hunk-heading-highlight :foreground bg-alt                   :background bg-yellow)
+   (magit-section-highlight                                                :background bg-alt2)
+   (magit-diff-hunk-heading           :foreground bg-alt                   :background (doom-lighten fg 0.4))
+   (magit-diff-hunk-heading-highlight :foreground bg-alt                   :background (doom-lighten fg 0.1))
    (magit-diff-hunk-heading-selection :foreground bg-alt                   :background orange)
    (magit-diff-lines-boundary         :foreground bg-alt                   :background orange)
    (magit-diff-context                :foreground (doom-lighten fg 0.4)    :background bg)
@@ -294,6 +294,20 @@ All other values default to \"medium\"."
    (magit-diff-added-highlight        :foreground green                    :background (doom-darken bg-diff-green 0.02))
    (magit-diff-removed                :foreground (doom-lighten red 0.4)   :background bg-diff-red)
    (magit-diff-removed-highlight      :foreground red                      :background (doom-darken bg-diff-red 0.02))
+   (magit-hash                        :foreground yellow)
+   (magit-tag                         :foreground yellow)
+   (magit-branch-remote               :foreground teal)
+   (magit-branch-local                :foreground green)
+
+   ;;;; magit pop-up with options
+   (transient-heading                 :foreground blue)
+   (transient-key-stay                :foreground violet)
+   (transient-key-exit                :foreground orange)
+   (transient-inactive-argument       :foreground base8)
+   (transient-argument                :foreground violet :bold t)
+   (transient-value                   :foreground green  :bold t)
+   ;;;; inherited by transient-unreachable
+   (shadow                            :foreground base7)
 
    ;;
    ;; XXX: TO BE VERIFIED
