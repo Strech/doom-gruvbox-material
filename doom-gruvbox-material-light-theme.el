@@ -223,10 +223,10 @@ All other values default to \"medium\"."
    (corfu-annotations :foreground comments)
 
    ;;;; doom-emacs
-   (doom-dashboard-banner      :foreground (doom-darken base4 0.3))
-   (doom-dashboard-menu-title  :foreground green)
-   (doom-dashboard-menu-desc   :foreground green)
-   (doom-dashboard-footer-icon :foreground (doom-darken yellow 0.4))
+   (doom-dashboard-banner      :foreground grey)
+   (doom-dashboard-menu-title  :foreground blue)
+   (doom-dashboard-menu-desc   :foreground violet)
+   (doom-dashboard-footer-icon :foreground violet)
    (doom-dashboard-loaded      :foreground yellow)
 
    ;;;; lsp
