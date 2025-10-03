@@ -282,6 +282,7 @@ All other values default to \"medium\"."
    (diff-refine-removed :foreground bg-alt :background bg-red)
 
    ;;;; magit
+   (magit-header-line                 :foreground blue                     :background bg :box `(:line-width 2 :color ,blue))
    (magit-section-highlight                                                :background bg-alt2)
    (magit-diff-hunk-heading           :foreground bg-alt                   :background (doom-lighten fg 0.4))
    (magit-diff-hunk-heading-highlight :foreground bg-alt                   :background (doom-lighten fg 0.1))
