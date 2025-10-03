@@ -272,10 +272,15 @@ All other values default to \"medium\"."
    ;; (popup-tip-face :foreground fg :background bg-alt)
 
    ;;;; consult
-   (consult-highlight-match :foreground bg-visual-yellow :background bg-yellow)
+   (consult-highlight-match :foreground bg-visual-yellow           :background bg-yellow)
+   (consult-file            :foreground bg-alt                     :background (doom-lighten fg 0.1) :slant 'normal)
+   (consult-line-number     :foreground (doom-lighten fg-alt 0.45))
    ;;(consult-highlight-mark ??)
    ;; (consult-grep-context :foreground orange)
    ;; (consult-separator) ; line number?
+
+   ;;;; vertico
+   (vertico-group-separator :foreground fg :strike-through t) ; line of consult file
 
    ;;;; diff
    (diff-refine-added :foreground bg-alt :background bg-green)
