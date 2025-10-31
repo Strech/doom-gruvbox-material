@@ -204,6 +204,9 @@ All other values default to \"medium\"."
     :box (if -modeline-pad `(:line-width ,-modeline-pad :color ,modeline-bg-inactive)))
    (mode-line-emphasis :foreground highlight)
 
+   ;;;; Built-in highlight of matching pairs begin/end, etc
+   (show-paren-match :foreground bg-visual-yellow :background bg-yellow)
+
    ;;;; FCI
    (fill-column-indicator :foreground base2 :background nil)
 
@@ -230,6 +233,7 @@ All other values default to \"medium\"."
    (doom-dashboard-loaded      :foreground yellow)
 
    ;;;; lsp
+   ;;;; ; highlight similar words
    (lsp-face-highlight-textual :background bg-visual-blue :foreground blue)
 
    ;;;; rainbow-delimiters
@@ -280,6 +284,7 @@ All other values default to \"medium\"."
    ;; (consult-separator) ; line number?
 
    ;;;; vertico
+   ;;;; TODO: Color of the fine name
    (vertico-group-separator :foreground fg :strike-through t) ; line of consult file
 
    ;;;; diff
