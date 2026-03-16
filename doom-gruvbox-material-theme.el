@@ -158,8 +158,8 @@ background contrast. All other values default to \"medium\"."
    (base4     palette/bg4)
    (base5     palette/bg5)
    (base6     palette/bg5)
-   (base7     palette/grey0)
-   (base8     palette/grey0)
+   (base7     palette/grey1)
+   (base8     palette/grey2)
 
    (red       palette/red)
    (orange    palette/orange)
